@@ -17,6 +17,12 @@ export default {
       dest: pkg.module,
       format: 'es',
       sourceMap: true
+    },
+    {
+      dest: 'demo/react-accelerometer.js',
+      format: 'iife',
+      moduleName: 'ReactAccelerometer',
+      sourceMap: true
     }
   ],
   plugins: [

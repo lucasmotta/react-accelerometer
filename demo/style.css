@@ -1,0 +1,75 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.5;
+  background-color: #FF4C4B;
+  background-size: 11.25rem, 100%;
+  background-position: center, center;
+  background-repeat: repeat, no-repeat;
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0px, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 11.25rem),
+    linear-gradient(180deg, #FF4C4B 0%, #ffcf01 100%);
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #2b00ff;
+  border-bottom: 4px solid;
+}
+
+strong {
+  font-weight: bold;
+}
+
+ul {
+  padding: 1rem;
+}
+
+.item-link {
+  margin-top: 2rem;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  perspective: 1000;
+}
+
+.image,
+.shadow {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image {
+  border-radius: 2px;
+  background-color: #fff;
+  background-position: center;
+  background-size: cover;
+  background-image: url('https://c1.staticflickr.com/9/8539/9010234254_2e5f774d76_b.jpg');
+  z-index: 100;
+}
+
+.shadow {
+  background-color: rgba(0, 0, 0, 0.2);
+  filter: blur(12px);
+  z-index: 0;
+}

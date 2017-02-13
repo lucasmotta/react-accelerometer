@@ -1,0 +1,69 @@
+
+<html>
+  <head>
+    <title>React-Accelerometer - Pizza Demo</title>
+
+    <meta name="description" content="Uses the device's Accelerometer as a React Component">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- external dependencies -->
+    <script src="https://unpkg.com/react@15.4.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.4.2/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/react-motion@0.4.7/build/react-motion.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script src="./react-accelerometer.js"></script>
+  </head>
+  <body class="center">
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+      const { render } = ReactDOM
+      const { Motion, spring } = ReactMotion
+
+      const ReactAccelerometerMotion = ({ children }) => (
+        <ReactAccelerometer>
+          {(position) => {
+            if (!position) {
+              return children({ x: 0, y: 0 })
+            }
+
+            return (
+              <Motion style={{ x: spring(position.x), y: spring(position.y) }}>
+                {pos => children(pos)}
+              </Motion>
+            )
+          }}
+        </ReactAccelerometer>
+      )
+
+      const Demo = () => (
+        <ReactAccelerometerMotion>
+          {({ x, y }) => {
+            const shadowStyle = {
+              transform: `translate3d(${x * 8}px, ${y * 5 + 30}px, 0) rotateY(${-x * 3}deg)`
+            }
+
+            const imageStyle = {
+              transform: `translate3d(${x * 2}px, ${y * -2 - 10}px, 0) rotateY(${-x * 3}deg)`
+            }
+
+            return (
+              <div className="container">
+                <div className="shadow" style={shadowStyle} />
+                <div className="image" style={imageStyle} />
+              </div>
+            )
+          }}
+        </ReactAccelerometerMotion>
+      )
+
+      render(<Demo />, document.getElementById('app'))
+    </script>
+  </body>
+</html>

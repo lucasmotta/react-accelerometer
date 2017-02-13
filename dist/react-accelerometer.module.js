@@ -20,10 +20,12 @@ var ReactAccelerometer = (function (superclass) {
       x: null,
       y: null,
       z: null,
-      rotation: null
+      rotation: null,
+      landscape: false
     };
 
     this.handleAcceleration = this.handleAcceleration.bind(this);
+    this.handleOrientation = this.handleOrientation.bind(this);
   }
 
   if ( superclass ) ReactAccelerometer.__proto__ = superclass;
@@ -31,17 +33,27 @@ var ReactAccelerometer = (function (superclass) {
   ReactAccelerometer.prototype.constructor = ReactAccelerometer;
 
   ReactAccelerometer.prototype.componentDidMount = function componentDidMount () {
+    this.handleOrientation();
     window.addEventListener('devicemotion', this.handleAcceleration);
+    window.addEventListener('orientationchange', this.handleOrientation);
   };
 
   ReactAccelerometer.prototype.componentWillUnmount = function componentWillUnmount () {
     window.removeEventListener('devicemotion', this.handleAcceleration);
+    window.removeEventListener('orientationchange', this.handleOrientation);
+  };
+
+  ReactAccelerometer.prototype.handleOrientation = function handleOrientation (event) {
+    var orientation = window.orientation;
+    this.setState({ landscape: orientation === 90 || orientation === -90 });
   };
 
   ReactAccelerometer.prototype.handleAcceleration = function handleAcceleration (event) {
-    var ref = this.props;
-    var useGravity = ref.useGravity;
-    var multiplier = ref.multiplier;
+    var ref = this.state;
+    var landscape = ref.landscape;
+    var ref$1 = this.props;
+    var useGravity = ref$1.useGravity;
+    var multiplier = ref$1.multiplier;
     var acceleration = useGravity ? event.accelerationIncludingGravity : event.acceleration;
     var rotation = event.rotationRate || null;
     var x = acceleration.x;
@@ -50,8 +62,8 @@ var ReactAccelerometer = (function (superclass) {
 
     this.setState({
       rotation: rotation,
-      x: x * multiplier,
-      y: y * multiplier,
+      x: (landscape ? y : x) * multiplier,
+      y: (landscape ? x : y) * multiplier,
       z: z * multiplier
     });
   };
@@ -81,13 +93,13 @@ var ReactAccelerometer = (function (superclass) {
 
 ReactAccelerometer.propTypes = {
   children: React.PropTypes.func.isRequired,
-  useGravity: React.PropTypes.bool,
-  multiplier: React.PropTypes.number
+  multiplier: React.PropTypes.number,
+  useGravity: React.PropTypes.bool
 };
 
 ReactAccelerometer.defaultProps = {
-  useGravity: true,
-  multiplier: 1
+  multiplier: 1,
+  useGravity: true
 };
 
 var reactAccelerometer = ReactAccelerometer;

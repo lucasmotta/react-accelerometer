@@ -4,7 +4,7 @@
   "main": "dist/react-accelerometer.js",
   "module": "dist/react-accelerometer.module.js",
   "jsnext:main": "dist/react-accelerometer.module.js",
-  "description": "Use the device's Accelerometer as a React Component",
+  "description": "Uses the device's Accelerometer as a React Component",
   "author": "Lucas Motta <mail@lucasmotta.com> (lucasmotta.com)",
   "repository": {
     "type": "git",
@@ -26,6 +26,8 @@
     "lint": "standard src/*.js",
     "pretest": "npm run lint",
     "test": "mocha src/*.test.js --compilers js:buble/register --require test.config.js",
+    "prenow-start": "npm run build",
+    "now-start": "serve ./demo",
     "release": "release-it"
   },
   "peerDependencies": {
@@ -43,6 +45,8 @@
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^7.0.0",
     "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-watch": "^3.2.2",
+    "serve": "^3.1.0",
     "sinon": "^1.17.7",
     "standard": "^8.6.0"
   },

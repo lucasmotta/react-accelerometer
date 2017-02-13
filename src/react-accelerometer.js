@@ -23,6 +23,7 @@ class ReactAccelerometer extends React.Component {
     }
 
     this.handleAcceleration = this.handleAcceleration.bind(this)
+    this.handleOrientation = this.handleOrientation.bind(this)
   }
 
   componentDidMount () {

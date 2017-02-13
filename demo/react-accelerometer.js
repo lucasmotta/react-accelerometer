@@ -1,8 +1,5 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react')) :
-	typeof define === 'function' && define.amd ? define(['react'], factory) :
-	(global.ReactAccelerometer = factory(global.React));
-}(this, (function (react) { 'use strict';
+var ReactAccelerometer = (function (react) {
+'use strict';
 
 react = 'default' in react ? react['default'] : react;
 
@@ -114,5 +111,5 @@ var index = reactAccelerometer;
 
 return index;
 
-})));
+}(React));
 //# sourceMappingURL=react-accelerometer.js.map

@@ -1,0 +1,58 @@
+
+<html>
+  <head>
+    <title>React-Accelerometer Demo</title>
+
+    <meta name="description" content="Uses the device's Accelerometer as a React Component">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- external dependencies -->
+    <script src="https://unpkg.com/react@15.4.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.4.2/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/react-motion@0.4.7/build/react-motion.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script src="./react-accelerometer.js"></script>
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+      const { render } = ReactDOM
+
+      const Demo = () => (
+        <ReactAccelerometer>
+          {(position, rotation) => {
+            if (!position) {
+              return <div>Accelerometer not supported</div>
+            }
+
+            return (
+              <ul>
+                <li>
+                  <strong>React-Accelerometer</strong>
+                </li>
+                <li><strong>x:</strong> {position.x.toFixed(2)}</li>
+                <li><strong>y:</strong> {position.y.toFixed(2)}</li>
+                <li><strong>z:</strong> {position.z.toFixed(2)}</li>
+                <li><strong>rotation alpha:</strong> {rotation.alpha.toFixed(2)}</li>
+                <li><strong>rotation beta:</strong> {rotation.beta.toFixed(2)}</li>
+                <li><strong>rotation gamma:</strong> {rotation.gamma.toFixed(2)}</li>
+                <li className="item-link">
+                  <a href="pizza.html">view pizza demo</a>
+                </li>
+              </ul>
+            )
+          }}
+        </ReactAccelerometer>
+      )
+
+      render(<Demo />, document.getElementById('app'))
+    </script>
+  </body>
+</html>
