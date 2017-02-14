@@ -26,7 +26,7 @@
     "lint": "standard src/*.js",
     "pretest": "npm run lint",
     "test": "mocha src/*.test.js --compilers js:buble/register --require test.config.js",
-    "now-start": "serve ./demo",
+    "now-start": "http-server ./demo -p 3000",
     "release": "release-it"
   },
   "peerDependencies": {
@@ -35,6 +35,7 @@
   "devDependencies": {
     "buble": "^0.15.2",
     "enzyme": "^2.7.1",
+    "http-server": "^0.9.0",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "react": "^15.4.2",
@@ -45,7 +46,6 @@
     "rollup-plugin-commonjs": "^7.0.0",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-watch": "^3.2.2",
-    "serve": "^3.1.0",
     "sinon": "^1.17.7",
     "standard": "^8.6.0"
   },
@@ -58,8 +58,5 @@
       "before",
       "beforeEach"
     ]
-  },
-  "github": {
-    "release": true
   }
 }
