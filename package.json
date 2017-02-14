@@ -31,10 +31,12 @@
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"
   },
+  "dependencies": {
+    "http-server": "^0.9.0"
+  },
   "devDependencies": {
     "buble": "^0.15.2",
     "enzyme": "^2.7.1",
-    "http-server": "^0.9.0",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "react": "^15.4.2",
