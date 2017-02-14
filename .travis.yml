@@ -1,4 +1,11 @@
 language: node_js
 node_js:
-  - "6.1"
-  - "5.11"
+- '6.1'
+- '5.11'
+before_deploy:
+- npm run build
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  api_key:
+    secure: DQLdFupk0ZytaVZ7PbyeGiFQ6cj3cR5voRWsGS4HQZ+8DShRaPTxwppfyecg5pG0sgdKwtzIzEqDycRs0XlG/p8PnNfmOX12QMmePRGgNlSKDzsqGqSZyHbyMkmG03bjme0ybB5Rs9ZFsR7sXq/t2ye8S6vYb/utyYwmKFciUfIv3rbf0DGzVTGmVHMLn5H9sKGwMfTtvVBu5lo9Pc2rZLufgHHzeg4lhac+xQzW1RNxoO20/eLrSrP3HmelboqKr6i2Lrlrqb1VgJJlEgpjcJGb2jGxFlJLxi7WTA6Wf6XFGC93OiUngvM41ovIHwty1gumcSveXG+a5LXrXS5wQC2PxiXAgLX4aJFOg07JkCWNxH/SPkcAIQ41fTGJTfH0WgrFFuw2FVSLzUuePFOsSUWNJBYr+JvOkYuuc18Jm3rguYWZis4HzGBYWhuBNfFBxsKDpMm00ZFzhqc/DkxYmGPgVg67v3noF/RwhmaZfjcCMkGU3HMF8ZvNjjSiwWqgV0ZxOE2inUb+LCvre/jyymmoi7dcINI/uw94+6itwi6rj2abqtpojvKaEJRSbopHbTaQIIQRxxeM/BOgc//E1BtXdZwTYKnEsNgKGu2luZJm44t7+623eP2ovHrEhTKJmkRzd9YwTU+jjaOLuesp9SoZbARL1MMvwceb0WJvGp0=
