@@ -84,7 +84,7 @@ var ReactAccelerometer = (function (superclass) {
      * We have to detect if one of the values was ever set by the 'devicemotion' event,
      * as some browsers implement the API, but the device itself doesn't support.
      */
-    if (x !== null) {
+    if (x || y || z) {
       return children({ x: x, y: y, z: z }, rotation)
     }
 
