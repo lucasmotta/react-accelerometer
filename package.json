@@ -21,7 +21,7 @@
     "gyroscope"
   ],
   "scripts": {
-    "start": "http-server ./demo -p 3000",
+    "start": "http-server ./demo",
     "build": "rollup -c",
     "lint": "standard src/*.js",
     "pretest": "npm run lint",
