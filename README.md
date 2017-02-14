@@ -1,4 +1,5 @@
 # React-Accelerometer
+[![Build Status](https://travis-ci.org/lucasmotta/react-accelerometer.svg?branch=master)](https://travis-ci.org/lucasmotta/react-accelerometer)
 
 Allows you to take advantage of the device's accelerometer on a very easy and uncomplicated way.
 
