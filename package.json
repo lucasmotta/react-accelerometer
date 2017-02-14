@@ -26,7 +26,6 @@
     "lint": "standard src/*.js",
     "pretest": "npm run lint",
     "test": "mocha src/*.test.js --compilers js:buble/register --require test.config.js",
-    "prenow-start": "npm run build",
     "now-start": "serve ./demo",
     "release": "release-it"
   },
