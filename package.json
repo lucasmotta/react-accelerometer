@@ -1,6 +1,6 @@
 {
   "name": "react-accelerometer",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "dist/react-accelerometer.js",
   "module": "dist/react-accelerometer.module.js",
   "jsnext:main": "dist/react-accelerometer.module.js",
