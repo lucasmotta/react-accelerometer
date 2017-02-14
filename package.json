@@ -21,12 +21,11 @@
     "gyroscope"
   ],
   "scripts": {
-    "start": "rollup -c -w",
+    "start": "http-server ./demo -p 3000",
     "build": "rollup -c",
     "lint": "standard src/*.js",
     "pretest": "npm run lint",
     "test": "mocha src/*.test.js --compilers js:buble/register --require test.config.js",
-    "now-start": "http-server ./demo -p 3000",
     "release": "release-it"
   },
   "peerDependencies": {
