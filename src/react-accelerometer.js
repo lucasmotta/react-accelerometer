@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const React = require('react')
 
 /**
@@ -74,9 +76,9 @@ class ReactAccelerometer extends React.Component {
 }
 
 ReactAccelerometer.propTypes = {
-  children: React.PropTypes.func.isRequired,
-  multiplier: React.PropTypes.number,
-  useGravity: React.PropTypes.bool
+  children: PropTypes.func.isRequired,
+  multiplier: PropTypes.number,
+  useGravity: PropTypes.bool
 }
 
 ReactAccelerometer.defaultProps = {
